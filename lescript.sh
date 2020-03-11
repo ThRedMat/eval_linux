@@ -2,13 +2,12 @@
 
 echo "hello word"
 
-for fich in/tmp/in/*
+for fich in /tmp/in/*
 do
-	if [-f$fich]
-		then
+  if [ -f $fich ]
+    then
+    gzip $fich
 
-		gzip $fich
-		
-		mv $fich/tmp/out/
-	fi
-done  
+    mv $fich /tmp/out/
+  fi
+done
