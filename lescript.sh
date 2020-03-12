@@ -1,7 +1,5 @@
 #!/bin/bash
 
-echo "hello word"
-
 name=($find /tmp/out -name '*.gz')
 
 if [ -e /tmp/out/lock ]
@@ -13,15 +11,14 @@ else
   touch /tmp/out/lock
 fi
   
-if [ -f /tmp/in/]
+if [ -f /tmp/in/ ]
   then
-
-  error 25
+  echo error 25
 fi
 
 for fich in /tmp/in/*
 do
-  if [ -f $fich ]
+if [ -f $fich ]
     then
     echo $fich >> /tmp/out/log
 
@@ -30,7 +27,7 @@ do
   
 
     gzip /tmp/out/ $fich  
-  fi
+fi
   
 
 done
