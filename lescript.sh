@@ -2,7 +2,7 @@
 
 echo "hello word"
 
-name="find /tmp/out -name '*.gz'"
+name=($find /tmp/out -name '*.gz')
 
 if [ -e /tmp/out/lock ]
     then
