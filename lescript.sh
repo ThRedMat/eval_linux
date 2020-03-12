@@ -2,30 +2,39 @@
 
 echo "hello word"
 
-  if [ -e /tmp/out/lock ]
-     then
+name="find /tmp/out -name '*.gz'"
 
-     exit 22
+if [ -e /tmp/out/lock ]
+    then
 
-  else
-touch /tmp/out/lock
+    exit 22
+
+else
+  touch /tmp/out/lock
+fi
+  
+if [ -f /tmp/in/]
+  then
+
+  error 25
+fi
 
 for fich in /tmp/in/*
 do
   if [ -f $fich ]
     then
-    
+    echo $fich >> /tmp/out/log
+
     mv $fich /tmp/out/ 
 
   
 
     gzip /tmp/out/ $fich  
   fi
-
+  
 
 done
-
+echo $name >> /tmp/out/log
 rm /tmp/out/lock
-
-fi
-
+ 
+ 
