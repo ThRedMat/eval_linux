@@ -20,16 +20,14 @@ for fich in /tmp/in/*
 do
 if [ -f $fich ]
     then
-    echo $fich >> /tmp/out/log
+    echo traitement de $fich >> /tmp/out/log
+
+    gzip /tmp/out/$fich
 
     mv $fich /tmp/out/ 
 
-  
-
-    gzip /tmp/out/ $fich  
 fi
   
-
 done
 echo $name >> /tmp/out/log
 rm /tmp/out/lock
