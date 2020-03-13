@@ -22,7 +22,7 @@ if [ -f $fich ]
     then
     echo traitement de $fich >> /tmp/out/log
 
-    gzip /tmp/in/$fich
+    gzip $fich
 
     mv $fich.gz /tmp/out/ 
 
