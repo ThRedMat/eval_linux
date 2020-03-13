@@ -1,6 +1,6 @@
 #!/bin/bash
 
-name=($find /tmp/out -name '*.gz')
+name=($find /tmp/in -name)
 
 if [ -e /tmp/out/lock ]
     then
@@ -22,9 +22,9 @@ if [ -f $fich ]
     then
     echo traitement de $fich >> /tmp/out/log
 
-    gzip /tmp/out/$fich
+    gzip /tmp/in/$fich
 
-    mv $fich /tmp/out/ 
+    mv $fich.gz /tmp/out/ 
 
 fi
   
